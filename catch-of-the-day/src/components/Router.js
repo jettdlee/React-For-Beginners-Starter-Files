@@ -4,7 +4,7 @@ import StorePicker from "./StorePicker";
 import App from "./App";
 import NotFound from "./NotFound";
 
-const Router = () => {
+const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={StorePicker} />
@@ -12,6 +12,6 @@ const Router = () => {
       <Route component={NotFound} />
     </Switch>
   </BrowserRouter>
-};
+);
 
 export default Router;
