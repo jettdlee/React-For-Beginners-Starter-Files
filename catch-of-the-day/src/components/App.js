@@ -16,7 +16,8 @@ class App extends React.Component {
     const localStorageRef = localStorage.getItem(params.storeId);
     if (localStorageRef) {
       this.setState({
-        order: JSON.parse(localStorageRef)
+        fishes: JSON.parse(localStorageRef).fishes,
+        order: JSON.parse(localStorageRef).order
       });
     }
   }
@@ -24,7 +25,7 @@ class App extends React.Component {
   componentDidUpdate() {
     localStorage.setItem(
       this.props.match.params.storeId,
-      JSON.stringify(this.state.order)
+      JSON.stringify(this.state)
     );
   }
 
