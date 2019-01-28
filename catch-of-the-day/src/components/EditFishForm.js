@@ -1,6 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class EditFishForm extends React.Component {
+  static propTypes = {
+    fish: PropTypes.shape({
+      image: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.number,
+      desc: PropTypes.string,
+      status: PropTypes.string
+    }),
+    index: PropTypes.string,
+    updateFish: PropTypes.func
+  };
+
   handleChange = event => {
     console.log(event.currentTarget.value);
     // update that fish
@@ -46,7 +59,8 @@ class EditFishForm extends React.Component {
           onChange={this.handleChange}
           value={this.props.fish.image}
         />
-        <button key={`${this.props.index}_remove_fish`}
+        <button
+          key={`${this.props.index}_remove_fish`}
           onClick={() => {
             this.props.deleteFish(this.props.index);
           }}
