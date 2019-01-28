@@ -21,6 +21,24 @@ class Order extends React.Component {
       <li key={key}>
         {count} lbs {fish.name}
         {formatPrice(count * fish.price)}
+        <button
+          key={`${key}_${Date.now()}_delInv`}
+          onClick={() => this.props.deleteIndividualOrder(key)}
+        >
+          -
+        </button>
+        <button
+          key={`${key}_${Date.now()}_addInv`}
+          onClick={() => this.props.addToOrder(key)}
+        >
+          +
+        </button>
+        <button
+          key={`${key}_${Date.now()}_delOrder`}
+          onClick={() => this.props.deleteFromOrder(key)}
+        >
+          &times;
+        </button>
       </li>
     );
   };
